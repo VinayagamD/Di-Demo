@@ -7,8 +7,10 @@ import com.vinay.didemo.controllers.SetterInjectionController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+//@ComponentScan(basePackages = {"com.vinay.didemo.services","com.vinay.didemo.repositories"})
 public class DIDemoApplication {
 
     public static void main(String[] args) {
