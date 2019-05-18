@@ -17,7 +17,6 @@ public class DIDemoApplication {
 
     public static void main(String[] args) {
        ApplicationContext ctx = SpringApplication.run(DIDemoApplication.class, args);
-        MyController controller = (MyController) ctx.getBean("myController");
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
         System.out.println(fakeDataSource.getUser());
         FakeJMSBroker fakeJMSBroker = ctx.getBean(FakeJMSBroker.class);

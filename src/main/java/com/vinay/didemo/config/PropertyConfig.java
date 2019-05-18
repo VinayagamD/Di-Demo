@@ -2,25 +2,13 @@ package com.vinay.didemo.config;
 
 import com.vinay.didemo.beans.FakeDataSource;
 import com.vinay.didemo.beans.FakeJMSBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 @Configuration
-//@PropertySource({"classpath:datasource.properties","classpath:vinay.jms.properties"})
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:vinay.jms.properties")
-})
 public class PropertyConfig {
-
-    @Autowired
-    private Environment environment;
 
     @Value("${vinay.username}")
     private String user;
@@ -43,7 +31,7 @@ public class PropertyConfig {
     @Bean
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUser(environment.getProperty("VINAY_USERNAME"));
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
         return  fakeDataSource;
@@ -60,7 +48,6 @@ public class PropertyConfig {
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer poperties(){
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =  new PropertySourcesPlaceholderConfigurer();
-        return propertySourcesPlaceholderConfigurer;
+        return new PropertySourcesPlaceholderConfigurer();
     }
 }
