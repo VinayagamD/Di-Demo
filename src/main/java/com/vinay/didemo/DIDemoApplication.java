@@ -1,6 +1,7 @@
 package com.vinay.didemo;
 
 import com.vinay.didemo.beans.FakeDataSource;
+import com.vinay.didemo.beans.FakeJMSBroker;
 import com.vinay.didemo.controllers.ConstructorInjectedController;
 import com.vinay.didemo.controllers.MyController;
 import com.vinay.didemo.controllers.PropertyInjectedController;
@@ -19,6 +20,8 @@ public class DIDemoApplication {
         MyController controller = (MyController) ctx.getBean("myController");
         FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
         System.out.println(fakeDataSource.getUser());
+        FakeJMSBroker fakeJMSBroker = ctx.getBean(FakeJMSBroker.class);
+        System.out.println(fakeJMSBroker.getUserName());
     }
 
 }
