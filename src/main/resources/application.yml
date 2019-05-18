@@ -1,0 +1,5 @@
+vinay:
+  jms:
+    username: Vinay
+    password: Drago
+    dburl: mytestdburl
