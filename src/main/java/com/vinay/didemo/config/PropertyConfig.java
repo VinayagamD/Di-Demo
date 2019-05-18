@@ -5,6 +5,8 @@ import com.vinay.didemo.beans.FakeJMSBroker;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
@@ -13,8 +15,8 @@ public class PropertyConfig {
     @Value("${vinay.username}")
     private String user;
 
-    @Value("${vinay.password}")
-    private String password;
+   /* @Value("${vinay.password}")
+    private String password;*/
 
     @Value("${vinay.dburl}")
     private String url;
@@ -32,7 +34,7 @@ public class PropertyConfig {
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUser(user);
-        fakeDataSource.setPassword(password);
+        fakeDataSource.setPassword(jmsPassword);
         fakeDataSource.setUrl(url);
         return  fakeDataSource;
     }
@@ -46,8 +48,8 @@ public class PropertyConfig {
         return fakeJMSBroker;
     }
 
-    @Bean
+  /*  @Bean
     public static PropertySourcesPlaceholderConfigurer poperties(){
         return new PropertySourcesPlaceholderConfigurer();
-    }
+    }*/
 }

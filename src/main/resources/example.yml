@@ -1,0 +1,37 @@
+# This is a comment
+name: Vinay
+
+names: # Comment
+  - Vinay
+  - Paul
+  - Ringo
+  - Vinay
+
+pound_sign: "#"
+
+book:
+  author: Joe Buck
+  publisher: random house
+
+truth: yes
+
+another_truth: True
+
+more_true: true
+
+false: no #No, false, FALSE
+
+string_val: "This is it's quote"
+
+color_string: "my courses: one two three"
+
+included_new_line: |
+  adsf adsf adsf
+  adsf adfewf adfewf
+  adsf ae adfre
+
+ignore_new_line: >
+  this is
+  just one long
+  string
+
